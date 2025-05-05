@@ -1,113 +1,167 @@
 
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Forma Viva</title>
-  <link rel="manifest" href="manifest.json" />
-  <meta name="theme-color" content="#000000"/>
-  <style>
-    body { font-family: sans-serif; background: #fafafa; margin: 2rem; }
-    label { font-weight: bold; display: block; margin-top: 1rem; }
-    select, input[type=range], textarea, button {
-      width: 100%; padding: 0.5rem; margin-top: 0.5rem;
-    }
-    .botones { margin-top: 1.5rem; display: flex; gap: 1rem; }
-    #mensajeCopiado { display: none; color: green; }
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Forma Viva</title>
+<style>
+    body { font-family: Arial; padding: 20px; background: #111; color: #eee; }
+    h1 { color: #d2b48c; text-align: center; }
+    .container { max-width: 700px; margin: auto; background: #222; padding: 20px; border-radius: 12px; }
+    label, select, input, button, textarea { display: block; width: 100%; margin-top: 10px; }
+    button { background: #d2b48c; color: black; border: none; padding: 10px; border-radius: 5px; cursor: pointer; }
+    textarea { height: 120px; margin-top: 20px; }
   </style>
 </head>
 <body>
-  <img src="icon.png" alt="Forma Viva" style="width:100px;height:auto;display:block;margin:0 auto 1rem;" />
-  <div style="text-align:center; margin-bottom:1rem;">
-    <button onclick="generarAleatorio()" style="padding:0.7rem 1.5rem;">Aleatorio</button>
-  </div>
-  <h1>Generador de Prompt - Forma Viva</h1>
+<div class="container">
+<img alt="Logo Forma Viva" src="file-Aa5X3V1D6fx7PGkuJPXiv1" style="width: 140px; display:block; margin: auto; margin-bottom: 20px;"/>
+<button onclick="generarAleatorio()">Aleatorio</button>
+<h1>Forma Viva</h1>
+<label for="forma">Forma de la composición</label>
+<select id="forma">
+<option value="explosion-like">Explosiva</option>
+<option value="spiral">Espiral</option>
+<option value="radial">Radial</option>
+<option value="concentric circular">Circular concéntrica</option>
+<option value="geometric">Geométrica</option>
+<option value="organic">Orgánica</option>
+<option value="network">En red</option>
+<option value="swarm">En enjambre</option>
+<option value="grid">Reticulada</option>
+<option value="wave">En ondas</option>
+<option value="banded">En bandas</option>
+<option value="cascading">En cascada</option>
+<option value="centrifugal">Centrífuga</option>
+<option value="irregular grid">Cuadrícula irregular</option>
+<option value="mosaic">Mosaico</option>
+</select>
+<label for="posHorizontal">Posición horizontal</label>
+<select id="posHorizontal">
+<option value="left">Izquierda</option>
+<option value="center">Centro</option>
+<option value="right">Derecha</option>
+</select>
+<label for="posVertical">Posición vertical</label>
+<select id="posVertical">
+<option value="top">Arriba</option>
+<option value="center">Centro</option>
+<option value="bottom">Abajo</option>
+</select>
+<label for="colorFondo">Color de fondo</label>
+<select id="colorFondo">
+<option value="charcoal black">Negro carbón</option>
+<option value="slate gray">Gris pizarra</option>
+<option value="smoke gray">Gris humo</option>
+<option value="polished chrome">Cromo pulido</option>
+<option value="metallic silver">Plateado metálico</option>
+<option value="titanium">Titanio</option>
+<option value="dark bronze">Bronce oscuro</option>
+<option value="aged copper">Cobre envejecido</option>
+<option value="antique gold">Oro viejo</option>
+<option value="burgundy">Vino tinto</option>
+<option value="rust red">Rojo óxido</option>
+<option value="terracotta">Terracota</option>
+<option value="ochre">Ocre</option>
+<option value="mustard yellow">Amarillo mostaza</option>
+<option value="olive green">Verde oliva</option>
+<option value="moss green">Verde musgo</option>
+<option value="petroleum blue">Azul petróleo</option>
+<option value="indigo blue">Azul índigo</option>
+<option value="sand beige">Beige arena</option>
+<option value="ivory">Marfil</option>
+</select>
+<label for="colorPiezas">Color de las piezas</label>
+<select id="colorPiezas">
+<option value="charcoal black">Negro carbón</option>
+<option value="slate gray">Gris pizarra</option>
+<option value="smoke gray">Gris humo</option>
+<option value="polished chrome">Cromo pulido</option>
+<option value="metallic silver">Plateado metálico</option>
+<option value="titanium">Titanio</option>
+<option value="dark bronze">Bronce oscuro</option>
+<option value="aged copper">Cobre envejecido</option>
+<option value="antique gold">Oro viejo</option>
+<option value="burgundy">Vino tinto</option>
+<option value="rust red">Rojo óxido</option>
+<option value="terracotta">Terracota</option>
+<option value="ochre">Ocre</option>
+<option value="mustard yellow">Amarillo mostaza</option>
+<option value="olive green">Verde oliva</option>
+<option value="moss green">Verde musgo</option>
+<option value="petroleum blue">Azul petróleo</option>
+<option value="indigo blue">Azul índigo</option>
+<option value="sand beige">Beige arena</option>
+<option value="ivory">Marfil</option>
+</select>
+<label for="formato">Formato</label>
+<select id="formato"><option value="irregular">Irregular</option><option value="cuadrado">Cuadrado</option><option value="horizontal rectangle">Rectangular horizontal</option><option value="vertical rectangle">Rectangular vertical</option><option value="formato expandido">Formato expandido</option><option value="circular">Circular</option><option value="tríptico">Tríptico</option><option value="poligonal">Poligonal</option><option value="asimétrico">Asimétrico</option><option value="formato partido">Formato partido</option></select>
+<label for="textura">Textura del fondo</label>
+<select id="textura"><option value="dusty matte">Polvorienta</option><option value="rough">Rugosa</option><option value="smooth">Lisa</option><option value="chalky">Tizada</option><option value="pebbled">Gravilla</option><option value="oxidized">Oxidada</option><option value="fibrous">Fibrosa</option><option value="gritty">Arenosa</option><option value="metallic brushed">Metal cepillado</option><option value="plastered">Enlucida</option></select>
+<label for="entorno">Entorno</label>
+<select id="entorno"><option value="rustic wooden easel">Caballete rústico de madera</option><option value="gallery wall">Pared de galería</option><option value="white room">Sala blanca</option><option value="dark gallery">Galería oscura</option><option value="artist studio">Estudio de artista</option><option value="industrial space">Espacio industrial</option><option value="outdoor nature">Exterior natural</option><option value="fabric background">Fondo de tela</option><option value="black box room">Sala negra</option><option value="wooden wall">Pared de madera</option></select>
+<label for="iluminacion">Iluminación</label>
+<select id="iluminacion"><option value="maximum lighting">Máxima iluminación</option><option value="side light">Luz lateral</option><option value="top light">Luz superior</option><option value="soft ambient light">Luz ambiental suave</option><option value="dramatic lighting">Luz dramática</option><option value="low spotlight">Luz puntual tenue</option><option value="warm glow">Resplandor cálido</option><option value="gallery LED">Luz de galería LED</option><option value="multi-directional light">Luz multidireccional</option><option value="cool daylight">Luz diurna fría</option></select>
+<label for="cantidad">Cantidad de piezas</label>
+<input id="cantidad" max="300" min="0" type="number" value="300"/>
+<label for="angulo">Rotación</label>
+<input id="angulo" max="90" min="-90" type="number" value="0"/>
+<button onclick="generarPrompt()">Generar Prompt</button>
+<textarea id="promptResultado" readonly=""></textarea>
+<button onclick="copiarPrompt()">Copiar</button>
 
-  <label for="estilo">Estilo artístico:</label>
-  <select id="estilo">
-    <option>Minimalismo</option>
-    <option>Arte cinético</option>
-    <option>Arte povera</option>
-    <option>Land Art</option>
-    <option>Arte geométrico</option>
-    <option>Expresionismo abstracto</option>
-    <option>Instalación contemporánea</option>
-    <option>Arte conceptual</option>
-    <option>Surrealismo moderno</option>
-    <option>Arte digital generativo</option>
-    <option>Collage material</option>
-    <option>Arte efímero</option>
-    <option>Arte estructural</option>
-    <option>Arte ecológico</option>
-    <option>Arte escultórico mural</option>
-  </select>
+</div>
+<script>
+    function generarPrompt() {
+      const forma = document.getElementById("forma").value;
+      const posHorizontal = document.getElementById("posHorizontal").value;
+      const posVertical = document.getElementById("posVertical").value;
+      const colorFondo = document.getElementById("colorFondo").value;
+      const colorPiezas = document.getElementById("colorPiezas").value;
+      const formato = document.getElementById("formato").value;
+      const textura = document.getElementById("textura").value;
+      const entorno = document.getElementById("entorno").value;
+      const iluminacion = document.getElementById("iluminacion").value;
+      const cantidad = document.getElementById("cantidad").value;
+      const angulo = document.getElementById("angulo").value;
 
-  <label for="elementos">Elementos naturales utilizados:</label>
-  <select id="elementos" multiple size="6">
-    <option>Fragmentos de corteza</option>
-    <option>Piedras planas</option>
-    <option>Hojas secas</option>
-    <option>Arenilla volcánica</option>
-    <option>Ramas delgadas</option>
-    <option>Semillas</option>
-    <option>Caracoles</option>
-    <option>Conchas marinas</option>
-    <option>Grava fina</option>
-    <option>Musgo</option>
-    <option>Maderas erosionadas</option>
-    <option>Hojas frescas</option>
-    <option>Fibras de palmera</option>
-    <option>Pétalos secos</option>
-    <option>Arcilla quebrada</option>
-    <option>Fragmentos de cerámica</option>
-    <option>Corcho natural</option>
-    <option>Cortezas curvadas</option>
-    <option>Ramas quemadas</option>
-    <option>Raíces delgadas</option>
-    <option>Hilos naturales</option>
-    <option>Tejidos rústicos</option>
-    <option>Hojas de palma</option>
-    <option>Cascarillas de nuez</option>
-    <option>Espinas vegetales</option>
-    <option>Polvo de roca</option>
-    <option>Troncos tallados</option>
-    <option>Cañas huecas</option>
-    <option>Fragmentos textiles</option>
-    <option>Metales oxidados</option>
-  </select>
+      const prompt = `A contemporary abstract wall installation composed of approximately ${cantidad} fragments of bark with amorphous, jagged, and irregular shapes. The elements are painted in ${colorPiezas} and arranged in a ${forma} pattern with an ${posHorizontal}-${posVertical} layout, rotated ${angulo} degrees. They appear over a ${colorFondo} background with a ${textura} texture, displayed in a ${formato} format within a ${entorno} and lit by ${iluminacion}. Hyper-realistic, richly detailed, contemporary artwork.`;
 
-  <label for="tiposElementos">¿Cuántos tipos distintos de elementos?:</label>
-  <input type="range" id="tiposElementos" min="1" max="10" value="3" oninput="this.nextElementSibling.textContent=this.value"/>
-  <span>3</span>
+      document.getElementById("promptResultado").value = prompt;
+    }
 
-  <label for="fondo">Fondo del entorno:</label>
-  <select id="fondo">
-    <option value="black">Negro</option>
-    <option value="white">Blanco</option>
-    <option value="dark blue">Azul oscuro</option>
-    <option value="beige">Beige</option>
-    <option value="grass">Pasto realista</option>
-    <option value="riverbed">Lecho de río</option>
-    <option value="forest floor">Suelo de bosque</option>
-    <option value="mountains">Montañas naturales</option>
-  </select>
+    function copiarPrompt() {
+      const textarea = document.getElementById("promptResultado");
+      textarea.select();
+      document.execCommand("copy");
+      alert("Prompt copiado");
+    }
 
-  <p style="margin-top:2rem;color:#555;">(El resto de parámetros seguirá con lo que ya tienes. Se añadirán dinámicamente al script.)</p>
+    function abrirChatGPT() {
+      const chatUrl = "https://chat.openai.com/chat";
+      window.open(chatUrl, "_blank");
+    }
 
-  <script>
     function generarAleatorio() {
-      const selects = document.querySelectorAll("select");
-      selects.forEach(sel => {
-        if (!sel.multiple) {
-          const opciones = sel.querySelectorAll("option");
-          const i = Math.floor(Math.random() * opciones.length);
-          sel.selectedIndex = i;
-        }
-      });
-      const piezas = document.getElementById("tiposElementos");
-      piezas.value = Math.floor(Math.random() * 10 + 1);
-      piezas.nextElementSibling.textContent = piezas.value;
+      const opciones = (id) => {
+        const select = document.getElementById(id);
+        const opts = select.options;
+        const rand = Math.floor(Math.random() * opts.length);
+        select.selectedIndex = rand;
+      };
+      opciones("forma");
+      opciones("posHorizontal");
+      opciones("posVertical");
+      opciones("colorFondo");
+      opciones("colorPiezas");
+      opciones("formato");
+      opciones("textura");
+      opciones("entorno");
+      opciones("iluminacion");
+      document.getElementById("cantidad").value = Math.floor(Math.random() * 300);
+      document.getElementById("angulo").value = Math.floor(Math.random() * 180) - 90;
     }
   </script>
 </body>
